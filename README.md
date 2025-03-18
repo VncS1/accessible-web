@@ -1,12 +1,52 @@
-# React + Vite
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>README - Extensão de Acessibilidade</title>
+    </head>
+    <body>
+        <h1>Extensão de Acessibilidade para Google Chrome</h1>
+        
+        <p>Este projeto é uma extensão para o Google Chrome que avalia a acessibilidade de websites com base nas diretrizes da WCAG 2.0. Utilizando a biblioteca <code>axe-core</code>, a extensão identifica problemas e sugere melhorias para tornar os sites mais acessíveis.</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+        <h2>🚀 Funcionalidades</h2>
+        <ul>
+            <li>📊 Avaliação automática da acessibilidade de qualquer site.</li>
+            <li>🛠 Sugestões para melhorias de acessibilidade.</li>
+            <li>👨‍🦯 Interface acessível para todos os usuários.</li>
+        </ul>
 
-Currently, two official plugins are available:
+        <h2>📌 Como instalar e executar</h2>
+        <h3>1️⃣ Clonar o repositório</h3>
+        <pre><code>git clone https://github.com/seu-usuario/seu-repositorio.git</code></pre>
+        <pre><code>cd sua-extensao</code></pre>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+        <h3>2️⃣ Instalar as dependências</h3>
+        <pre><code>npm install</code></pre>
+        
+        <h3>3️⃣ Construir o projeto</h3>
+        <pre><code>npm run build</code></pre>
+        
+        <h3>4️⃣ Carregar a extensão no Google Chrome</h3>
+        <ol>
+            <li>Abrir o navegador e acessar: <code>chrome://extensions/</code></li>
+            <li>Ativar o <strong>Modo Desenvolvedor</strong> no canto superior direito.</li>
+            <li>Clicar em <strong>Carregar sem compactação</strong>.</li>
+            <li>Selecionar a pasta <code>build/</code> gerada na etapa anterior.</li>
+            <li>A extensão estará ativa e pronta para uso!</li>
+        </ol>
 
-## Expanding the ESLint configuration
+        <h2>🎯 Como usar</h2>
+        <p>Após carregar a extensão:</p>
+        <ol>
+            <li>Acesse qualquer site que deseja avaliar.</li>
+            <li>Clique no ícone da extensão na barra de ferramentas.</li>
+            <li>Aguarde a análise e visualize os problemas encontrados.</li>
+        </ol>
+        
+        <h2>📜 Licença</h2>
+        <p>Este projeto está licenciado sob a <strong>MIT License</strong>.</p>
+    </body>
+</html>
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
