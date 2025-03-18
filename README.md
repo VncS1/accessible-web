@@ -1,4 +1,6 @@
-<h1>Este projeto é uma extensão para o Google Chrome que avalia a acessibilidade de websites com base nas diretrizes da WCAG 2.0. Utilizando a biblioteca <code>axe-core</code>, a extensão identifica problemas e sugere melhorias para tornar os sites mais acessíveis.</h1>
+<h1>Accessible Web</h1> </br>
+
+<p>Este projeto é uma extensão para o Google Chrome que avalia a acessibilidade de websites com base nas diretrizes da WCAG 2.0. Utilizando a biblioteca <code>axe-core</code>, a extensão identifica problemas e sugere melhorias para tornar os sites mais acessíveis.<p>
 
 <h2>🚀 Funcionalidades</h2>
 <ul>
