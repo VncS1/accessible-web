@@ -5,5 +5,3 @@ export function App() {
     <Popup />
   )
 }
-
-export default App
