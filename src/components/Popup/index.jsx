@@ -1,59 +1,68 @@
-import React, { useEffect, useState } from "react";
-/* global chrome */
-export function Popup() {
-  const [resultados, setResultados] = useState([]);
+import React, { useEffect, useState } from 'react';
+import './styles.css';
 
+export function Popup() {
+  const [violations, setViolations] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   useEffect(() => {
-     
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      if (chrome.runtime.lastError) {
-        console.error("Erro ao acessar as abas:", chrome.runtime.lastError);
-        return;
-      }
-    
-      if (!tabs || tabs.length === 0) {
-        console.error("Nenhuma aba ativa encontrada.");
-        return;
-      }
-    
-      const tabId = tabs[0].id;
-      console.log("Aba ativa encontrada:", tabId);
-    
-      chrome.scripting.executeScript(
-        {
-          target: { tabId: tabId },
-          function: () => {
-            return new Promise((resolve) => {
-              setTimeout(() => {
-                resolve(window.axe.run());
-              }, 1000);
-            });
-          }
-        },
-        (results) => {
-          if (chrome.runtime.lastError) {
-            console.error("Erro ao executar o script:", chrome.runtime.lastError);
-            return;
-          }
-    
-          console.log("Resultados de acessibilidade:", results);
-          setResultados(results)
+    // eslint-disable-next-line no-undef
+    chrome.runtime.sendMessage(
+      { action: 'analyzeAccessibility' },
+      (response) => {
+        if (response.success) {
+          setViolations(response.results.violations || []);
+          console.log('Todos os resultados:', response.results);
+        } else {
+          console.log('Erro na análise:', response.error);
+          setError(response.error);
         }
-      );
-    });
+        setLoading(false);
+      }
+    );
   }, []);
 
   return (
-    <div style={{ width: 250, padding: 10 }}>
-      <h2>Problemas de Acessibilidade</h2>
-      {resultados.length > 0 ? (
-        <ul>
-          {resultados.map((item, index) => (
-            <li key={index}>{item.description}</li>
+    <div className="popup-container">
+      <h1 className="popup-title">
+        <span role="img" aria-label="acessibilidade">♿</span> Auditor de Acessibilidade
+      </h1>
+
+      {loading ? (
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p>Analisando página...</p>
+        </div>
+      ) : error ? (
+        <div className="error-message">
+          ⚠️ Erro: {error}
+        </div>
+      ) : violations.length > 0 ? (
+        <div className="violations-list">
+          {console.log("aaa")}
+          {violations.map((violation, index) => (
+            <div key={index} className="violation">
+              <div className="violation-header">
+                <h3 className="violation-title">{violation.help}</h3>
+                <span className="violation-impact">Impacto: {violation.impact}</span>
+              </div>
+              <p className="violation-description">{violation.description}</p>
+              <div className="violation-details">
+                <p className="violation-help">
+                  Solução: {violation.helpUrl ? (
+                    <a href={violation.helpUrl} target="_blank" rel="noreferrer">
+                      Ver guia
+                    </a>
+                  ) : 'Nenhum guia disponível'}
+                </p>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
-        <p>Nenhum problema encontrado! 🎉</p>
+        <div className="success-message">
+          ✅ Nenhuma violação encontrada!
+        </div>
       )}
     </div>
   );

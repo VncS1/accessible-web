@@ -1,0 +1,129 @@
+.popup-container {
+    width: 400px;
+    min-height: 300px;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8f9fa;
+  }
+  
+  .popup-title {
+    color: #2c3e50;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5em;
+  }
+  
+  .loading-container {
+    text-align: center;
+    padding: 2em;
+  }
+  
+  .loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1em;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .violation {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 1em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1em;
+  }
+  
+  .violation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+  }
+  
+  .violation-title {
+    color: #e74c3c;
+    margin: 0;
+    font-size: 1.1em;
+  }
+  
+  .violation-impact {
+    background: #e74c3c;
+    color: white;
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    font-size: 0.8em;
+  }
+  
+  .violation-description {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-bottom: 1em;
+  }
+  
+  .violation-details {
+    border-top: 1px solid #ecf0f1;
+    padding-top: 1em;
+  }
+  
+  .violation-help a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  .violation-help a:hover {
+    text-decoration: underline;
+  }
+  
+  .violation-nodes {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5em 0;
+  }
+  
+  .node-item {
+    background: #f9f9f9;
+    padding: 0.8em;
+    margin: 0.5em 0;
+    border-radius: 4px;
+    border-left: 3px solid #3498db;
+  }
+  
+  .node-html {
+    color: #2c3e50;
+    display: block;
+    font-family: monospace;
+    font-size: 0.85em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .node-failure {
+    color: #e74c3c;
+    font-size: 0.85em;
+    margin: 0.3em 0 0;
+  }
+  
+  .success-message {
+    text-align: center;
+    color: #27ae60;
+    padding: 2em;
+    font-weight: bold;
+  }
+  
+  .error-message {
+    color: #c0392b;
+    padding: 1em;
+    background: #f2dede;
+    border-radius: 4px;
+  }
+  

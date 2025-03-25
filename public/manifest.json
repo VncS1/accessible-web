@@ -1,27 +1,18 @@
 {
   "manifest_version": 3,
-  "name": "Minha Extensão React",
+  "name": "Auditor de Acessibilidade",
   "version": "1.0",
-  "description": "Uma extensão do Chrome feita com React!",
+  "description": "Verifica problemas de acessibilidade em páginas web",
   "permissions": ["scripting", "activeTab"],
   "background": {
-    "service_worker": "./dist/background.js"
+    "service_worker": "background.js"
   },
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["./dist/content.js"],
-      "type": "module"
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["axe.min.js"],
-      "matches": ["<all_urls>"]
-    }
-  ]
+  "web_accessible_resources": [{
+    "resources": ["axe.min.js"],
+    "matches": ["<all_urls>"]
+  }]
 }
