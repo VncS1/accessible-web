@@ -11,8 +11,10 @@
     "default_popup": "index.html",
     "default_icon": "icon.png"
   },
-  "web_accessible_resources": [{
-    "resources": ["axe.min.js"],
-    "matches": ["<all_urls>"]
-  }]
+  "web_accessible_resources": [
+    {
+      "resources": ["axe.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
