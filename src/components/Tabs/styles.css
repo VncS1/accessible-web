@@ -1,0 +1,38 @@
+.tabs-container {
+    margin-top: 1rem;
+  }
+  
+  .tabs-header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+  }
+  
+  .tabs-header button {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.3s;
+  }
+  
+  .tabs-header button:hover {
+    background: #e0e0e0;
+  }
+  
+  .tabs-header button.active {
+    background: #3498db;
+    color: white;
+  }
+  
+  .tabs-content {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .tab-content {
+    padding: 0.5rem;
+  }
+  
