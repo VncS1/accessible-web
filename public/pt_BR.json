@@ -388,6 +388,22 @@
     "video-caption": {
       "description": "Certifique-se de que elementos <video> tenham legendas",
       "help": "Elementos <video> devem ter legendas"
+    },
+    "summary-name": {
+      "description": "Garantir que os elementos do resumo tenham texto discernível",
+      "help": "Os elementos de resumo devem ter texto discernível"
+    },
+    "aria-braille-equivalent": {
+      "description": "Atributos aria-braille possuem um equivalente não braille",
+      "help": "Atributos aria-braille devem ter um equivalente não braille"
+    },
+    "aria-conditional-attr": {
+      "description": "O atributo ARIA é utilizado conforme descrito na especificação da função do elemento",
+      "help": "Garantir que os atributos ARIA sejam usados ​​conforme descrito na especificação da função do elemento"
+    },
+    "aria-deprecated-role": {
+      "description": "Elementos ARIA não usam funções obsoletas",
+      "help": "Garantir que os elementos não usem funções obsoletas"
     }
   },
   "checks": {
@@ -432,9 +448,9 @@
       "fail": "'aria-hidden=true' não deve estar presente no elemento <body>"
     },
     "aria-prohibited-attr": {
-      "pass": "O atributo ARIA é permitido",
-      "fail": "O atributo ARIA não pode ser utilizado: ${data.values}",
-      "incomplete": "O atributo ARIA não é bem suportado no elemento e o conteúdo de texto será usado em seu lugar: ${data.values}"
+      "pass": "Garantir que os atributos ARIA não sejam proibidos para a função de um elemento",
+      "fail": "Garantir que os atributos ARIA não sejam proibidos para a função de um elemento",
+      "incomplete": "Garantir que os atributos ARIA não sejam proibidos para a função de um elemento"
     },
     "aria-required-attr": {
       "pass": "Todos os atributos ARIA necessários estão presentes",
@@ -442,6 +458,26 @@
         "singular": "Atributo ARIA necessário ausente: ${data.values}",
         "plural": "Atributos ARIA necessários ausentes: ${data.values}"
       }
+    },
+    "summary-name": {
+      "pass": "Garantir que os elementos do resumo tenham texto discernível",
+      "fail": "Os elementos de resumo devem ter texto discernível",
+      "incomplete": "Os elementos de resumo devem ter texto discernível"
+    },
+    "aria-braille-equivalent": {
+      "pass": "Atributos aria-braille possuem um equivalente não braille",
+      "fail": "Atributos aria-braille devem ter um equivalente não braille",
+      "incomplete": "Atributos aria-braille devem ter um equivalente não braille"
+    },
+    "aria-conditional-attr": {
+      "pass": "O atributo ARIA é utilizado conforme descrito na especificação da função do elemento",
+      "fail": "Garantir que os atributos ARIA sejam usados ​​conforme descrito na especificação da função do elemento",
+      "incomplete": "Garantir que os atributos ARIA sejam usados ​​conforme descrito na especificação da função do elemento"
+    },
+    "aria-deprecated-role": {
+      "pass": "Elementos ARIA não usam funções obsoletas",
+      "fail": "Garantir que os elementos não usem funções obsoletas",
+      "incomplete": "Garantir que os elementos não usem funções obsoletas"
     },
     "aria-required-children": {
       "pass": {
