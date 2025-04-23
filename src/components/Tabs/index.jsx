@@ -1,30 +1,34 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { AccessibilityScore } from '../AcessibilityScore/index';
-import './styles.css';
+import React, { useState, useRef, useEffect } from "react";
+import { AccessibilityScore } from "../AcessibilityScore/index";
+import { Reviews } from "../Review/index";
+import "./styles.css";
 
-export function Tabs({ results }) {
-  const [activeTab, setActiveTab] = useState('home');
+export function Tabs({ results, siteId }) {
+  const [activeTab, setActiveTab] = useState("home");
   const tabsRef = useRef([]); // refs para controle de foco
 
   const tabs = [
-    { id: 'home', label: 'Home' },
-    { id: 'violations', label: 'Violations' },
-    { id: 'passes', label: 'Passes' },
-    { id: 'incomplete', label: 'Incomplete' },
-    { id: 'inapplicable', label: 'Inapplicable' },
+    { id: "home", label: "Home" },
+    { id: "passes", label: "Aprovados" },
+    { id: "violations", label: "Reprovados" },
+    { id: "incomplete", label: "Incompleto" },
+    { id: "inapplicable", label: "Sem Aplicação" },
+    { id: "reviews", label: "Avaliações" },
   ];
 
   // Foca o botão da aba ativa
   useEffect(() => {
-    const idx = tabs.findIndex(tab => tab.id === activeTab);
+    const idx = tabs.findIndex((tab) => tab.id === activeTab);
     if (tabsRef.current[idx]) tabsRef.current[idx].focus();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
   const onKeyDown = (e) => {
-    const currentIndex = tabs.findIndex(tab => tab.id === activeTab);
+    const currentIndex = tabs.findIndex((tab) => tab.id === activeTab);
     let newIndex = currentIndex;
-    if (e.key === 'ArrowRight') newIndex = (currentIndex + 1) % tabs.length;
-    if (e.key === 'ArrowLeft') newIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    if (e.key === "ArrowRight") newIndex = (currentIndex + 1) % tabs.length;
+    if (e.key === "ArrowLeft")
+      newIndex = (currentIndex - 1 + tabs.length) % tabs.length;
     if (newIndex !== currentIndex) {
       setActiveTab(tabs[newIndex].id);
       e.preventDefault();
@@ -33,19 +37,22 @@ export function Tabs({ results }) {
 
   const renderTabContent = () => {
     const paneProps = {
-      role: 'tabpanel',
-      'aria-labelledby': `tab-${activeTab}`,
-      tabIndex: 0
+      role: "tabpanel",
+      "aria-labelledby": `tab-${activeTab}`,
+      tabIndex: 0,
     };
     switch (activeTab) {
-      case 'home':
+      case "home":
         return (
           <div className="tab-content" {...paneProps}>
-            <p>Bem-vindo ao Auditor de Acessibilidade! Abaixo você vê a pontuação geral da página:</p>
+            <p>
+              Bem-vindo ao Auditor de Acessibilidade! Abaixo você vê a pontuação
+              geral da página:
+            </p>
             <AccessibilityScore results={results} />
           </div>
         );
-      case 'violations':
+      case "violations":
         return (
           <div className="tab-content" {...paneProps}>
             {results.violations.length > 0 ? (
@@ -60,7 +67,7 @@ export function Tabs({ results }) {
             )}
           </div>
         );
-      case 'passes':
+      case "passes":
         return (
           <div className="tab-content" {...paneProps}>
             {results.passes.length > 0 ? (
@@ -75,7 +82,7 @@ export function Tabs({ results }) {
             )}
           </div>
         );
-      case 'incomplete':
+      case "incomplete":
         return (
           <div className="tab-content" {...paneProps}>
             {results.incomplete.length > 0 ? (
@@ -90,7 +97,7 @@ export function Tabs({ results }) {
             )}
           </div>
         );
-      case 'inapplicable':
+      case "inapplicable":
         return (
           <div className="tab-content" {...paneProps}>
             {results.inapplicable.length > 0 ? (
@@ -103,6 +110,17 @@ export function Tabs({ results }) {
             ) : (
               <p>Nenhuma regra inaplicável encontrada.</p>
             )}
+          </div>
+        );
+      case "reviews":
+        return (
+          <div
+            className="tab-content"
+            role="tabpanel"
+            aria-labelledby="tab-reviews"
+            tabIndex={0}
+          >
+            <Reviews siteId={siteId} />
           </div>
         );
       default:
@@ -126,9 +144,9 @@ export function Tabs({ results }) {
             aria-selected={activeTab === tab.id}
             aria-controls={`panel-${tab.id}`}
             tabIndex={activeTab === tab.id ? 0 : -1}
-            className={activeTab === tab.id ? 'active' : ''}
+            className={activeTab === tab.id ? "active" : ""}
             onClick={() => setActiveTab(tab.id)}
-            ref={el => (tabsRef.current[idx] = el)}
+            ref={(el) => (tabsRef.current[idx] = el)}
           >
             {tab.label}
           </button>

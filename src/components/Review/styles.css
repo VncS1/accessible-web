@@ -1,0 +1,86 @@
+.reviews-container {
+    padding: 0.5rem;
+  }
+  
+  .login-prompt {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .login-prompt button {
+    background: none;
+    border: none;
+    color: #3498db;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .review-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .review-form label {
+    margin-bottom: 0.5rem;
+    font-size: 0.9em;
+  }
+  
+  .review-form select,
+  .review-form textarea {
+    width: 100%;
+    padding: 0.4rem;
+    box-sizing: border-box;
+    margin-top: 0.2rem;
+  }
+  
+  .review-form button {
+    align-self: flex-end;
+    padding: 0.5rem 1rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+  
+  .review-form button:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+  
+  .reviews-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .review-item {
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    margin-bottom: 0.3rem;
+    color: #555;
+  }
+  
+  .review-rating {
+    margin-left: 0.5rem;
+  }
+  
+  .review-date {
+    margin-left: 1rem;
+    font-style: italic;
+  }
+  

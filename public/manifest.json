@@ -2,19 +2,18 @@
   "manifest_version": 3,
   "name": "Auditor de Acessibilidade",
   "version": "1.0",
-  "description": "Verifica problemas de acessibilidade em páginas web",
-  "permissions": ["scripting", "activeTab"],
-  "background": {
-    "service_worker": "background.js"
+  "permissions": ["scripting", "activeTab", "storage", "identity"],
+  "oauth2": {
+    "client_id": "192440184688-n87bt7ta2noif2lghjcnu936ljnnhdl5.apps.googleusercontent.com",
+    "scopes": ["openid", "email", "profile"]
   },
-  "action": {
-    "default_popup": "index.html",
-    "default_icon": "icon.png"
-  },
+  "host_permissions": [
+    "https://firestore.googleapis.com/*",
+    "https://securetoken.googleapis.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "index.html", "default_icon": "icon.png" },
   "web_accessible_resources": [
-    {
-      "resources": ["axe.min.js"],
-      "matches": ["<all_urls>"]
-    }
+    { "resources": ["axe.min.js"], "matches": ["<all_urls>"] }
   ]
 }

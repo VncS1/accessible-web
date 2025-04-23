@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useEffect, useState } from "react";
 import { Tabs } from "../Tabs/index";
 import ptBR from "../../../public/pt_BR.json"; // ajuste o path conforme sua estrutura
@@ -6,6 +7,7 @@ import "./styles.css";
 export function Popup() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [siteId, setSiteId] = useState(null);
   const [error, setError] = useState(null);
 
   function translateItem(item) {
@@ -18,7 +20,11 @@ export function Popup() {
   }
 
   useEffect(() => {
-    // eslint-disable-next-line no-undef
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      const url = new URL(tabs[0].url);
+      setSiteId(url.hostname);
+    });
+
     chrome.runtime.sendMessage(
       { action: "analyzeAccessibility" },
       (response) => {
@@ -58,7 +64,7 @@ export function Popup() {
           ⚠️ Erro: {error}
         </div>
       ) : results ? (
-        <Tabs results={results} />
+        <Tabs results={results} siteId={siteId} />
       ) : (
         <div className="success-message" role="status" aria-live="polite">
           ✅ Nenhuma violação encontrada!
