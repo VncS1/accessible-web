@@ -2,9 +2,9 @@ import React from 'react';
 import './styles.css';
 
 export function AccessibilityScore({ results }) {
-  const { passes, violations, incomplete, inapplicable } = results;
-  const total = passes.length + violations.length + incomplete.length + inapplicable.length;
-  const weightedSum = passes.length * 1 + inapplicable.length * 1 + incomplete.length * 0.5;
+  const { passes, violations, incomplete } = results;
+  const total = passes.length + violations.length + incomplete.length;
+  const weightedSum = passes.length * 1 + incomplete.length * 0.5 + violations.length * 0;
   const score = total > 0 ? Math.round((weightedSum / total) * 100) : 0;
 
   let comentario = '';
