@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { AccessibilityScore } from "../AcessibilityScore/index";
 import { Reviews } from "../Review/index";
 import { ResultList } from "../ResultList/index";
+import { ReviewChart } from "../ReviewChart/index";
+
 import "./styles.css";
 
 export function Tabs({ results, siteId }) {
@@ -50,7 +52,10 @@ export function Tabs({ results, siteId }) {
               acessibilidade da página, calculada a partir dos resultados
               detalhados do axe-core.
             </p>
+            <p>Você também encontrará um gráfico com a média da avaliação feita pelos usuários da extensão.</p>
             <AccessibilityScore results={results} />
+            <hr />
+            <ReviewChart siteId={siteId} />
           </div>
         );
 
