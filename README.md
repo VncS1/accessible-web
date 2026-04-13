@@ -11,7 +11,7 @@
 
 <h2>📌 Como instalar e executar</h2>
 <h3>1️⃣ Clonar o repositório</h3>
-<pre><code>git clone https://github.com/seu-usuario/seu-repositorio.git</code></pre>
+<pre><code>git clone https://github.com/VncS1/accessible-web.git</code></pre>
 <pre><code>cd sua-extensao</code></pre>
 
 <h3>2️⃣ Instalar as dependências</h3>
